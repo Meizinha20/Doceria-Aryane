@@ -4,31 +4,37 @@
 
 body {
   margin: 0;
-  font-family: 'Poppins', Arial, sans-serif;
-  background: #fff5fa;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(180deg, #fff0f7, #eef7ff);
   color: #333;
 }
 
 /* HEADER */
 header {
-  background: linear-gradient(135deg, #ff8fc7, #7cc6ff);
+  background: linear-gradient(135deg, #ff9acb, #8fd3ff);
   color: white;
-  padding: 20px;
+  padding: 24px 20px;
   text-align: center;
   position: sticky;
   top: 0;
+  z-index: 5;
+}
+
+header h1 {
+  font-family: 'Playfair Display', serif;
+  margin: 0;
 }
 
 .btn-carrinho {
   position: absolute;
-  top: 20px;
+  top: 22px;
   right: 20px;
   background: white;
   color: #ff69b4;
   border: none;
   border-radius: 50px;
-  padding: 8px 14px;
-  font-weight: bold;
+  padding: 8px 16px;
+  font-weight: 600;
 }
 
 /* CATÁLOGO */
@@ -40,87 +46,87 @@ header {
 }
 
 .card {
-  background: white;
-  border-radius: 18px;
-  padding: 20px;
-  box-shadow: 0 8px 20px rgba(0,0,0,.1);
+  background: linear-gradient(180deg, #ffffff, #fff7fb);
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 10px 25px rgba(0,0,0,.12);
   text-align: center;
 }
 
 .card h2 {
+  font-family: 'Playfair Display', serif;
   color: #ff69b4;
 }
 
 .card span {
-  font-weight: bold;
+  display: block;
+  margin: 12px 0;
+  font-weight: 600;
   color: #1e90ff;
 }
 
 .card button {
-  margin-top: 10px;
-  background: #1e90ff;
+  background: linear-gradient(135deg, #7cc6ff, #ff8fc7);
   color: white;
   border: none;
-  padding: 12px;
+  padding: 13px;
   width: 100%;
-  border-radius: 12px;
-  font-size: 16px;
+  border-radius: 14px;
+}
+
+/* OVERLAY */
+#overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.55);
+  display: none;
+  z-index: 9;
 }
 
 /* CARRINHO */
-.carrinho {
+#carrinho {
   position: fixed;
   top: 0;
   right: -100%;
   width: 85%;
   max-width: 400px;
   height: 100%;
-  background: white;
-  box-shadow: -5px 0 20px rgba(0,0,0,.2);
-  transition: 0.3s;
+  background: linear-gradient(180deg, #ffffff, #fff5fa);
+  z-index: 10;
   display: flex;
   flex-direction: column;
+  transition: right 0.35s ease;
 }
 
-.carrinho.ativo {
+#carrinho.ativo {
   right: 0;
 }
 
 .topo {
+  background: linear-gradient(135deg, #ff8fc7, #7cc6ff);
+  color: white;
+  padding: 18px;
   display: flex;
   justify-content: space-between;
-  padding: 15px;
-  background: #ff69b4;
-  color: white;
 }
 
-.topo button {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 18px;
-}
-
-.carrinho ul {
+#lista {
   flex: 1;
-  list-style: none;
   padding: 15px;
-  overflow-y: auto;
+  list-style: none;
 }
 
 .rodape {
   padding: 15px;
-  border-top: 1px solid #eee;
 }
 
 .whats {
-  background: #25d366;
+  background: linear-gradient(135deg, #25d366, #1ebc5a);
   color: white;
   border: none;
   padding: 14px;
   width: 100%;
-  border-radius: 12px;
-  font-size: 16px;
+  border-radius: 14px;
 }
 
 /* INSTAGRAM */
@@ -133,7 +139,6 @@ header {
   padding: 14px;
   border-radius: 50%;
   text-decoration: none;
-  font-size: 20px;
 }
 
 /* DESKTOP */
