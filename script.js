@@ -36,11 +36,13 @@ function renderizar() {
 
   carrinho.forEach(item => {
     soma += item.total;
-    lista.innerHTML += `<li>
-      ${item.nome} <br>
-      ${item.sabor} | ${item.tamanho} ${item.nutella ? "+ Nutella" : ""}
-      <br><b>R$ ${item.total}</b>
-    </li>`;
+    lista.innerHTML += `
+      <li>
+        <b>${item.nome}</b><br>
+        ${item.sabor} • ${item.tamanho} ${item.nutella ? "+ Nutella" : ""}
+        <br><b>R$ ${item.total}</b>
+      </li>
+    `;
   });
 
   totalEl.innerText = "Total: R$ " + soma;
@@ -57,13 +59,13 @@ function fecharCarrinho() {
 }
 
 function finalizar() {
-  let msg = "Pedido Doceria da Aryane:%0A";
+  let msg = "Pedido - Doceria da Aryane:%0A";
 
   carrinho.forEach(p => {
-    msg += `- ${p.nome} (${p.sabor} - ${p.tamanho}) ${p.nutella ? "+ Nutella" : ""} R$${p.total}%0A`;
+    msg += `• ${p.nome} (${p.sabor} - ${p.tamanho}) ${p.nutella ? "+ Nutella" : ""} - R$${p.total}%0A`;
   });
 
-  window.open("https://wa.me/5512982153106?text=" + msg);
+  window.open("https://wa.me/55SEUNUMERO?text=" + msg);
 }
 
 renderizar();
