@@ -2,51 +2,67 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Doceria da Aryane 🍰</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
-  <h1>🍬 Doceria da Aryane 🍬</h1>
-  <p>Pedidos 100% online • Copo da Felicidade</p>
+  <h1>🍬 Doceria da Aryane</h1>
+  <p>Copo da Felicidade • Pedidos online</p>
+  <button class="carrinho-btn" onclick="abrirCarrinho()">
+    🛒 Carrinho (<span id="contador">0</span>)
+  </button>
 </header>
 
-<section class="catalogo">
-  
+<main class="catalogo">
+
   <div class="produto">
-    <h2>Copo da Felicidade Tradicional</h2>
-    <p>Chocolate, brigadeiro e creme</p>
+    <h2>Tradicional</h2>
+    <p>Chocolate + brigadeiro + creme</p>
     <span>R$ 15,00</span>
-    <button onclick="pedido('Copo da Felicidade Tradicional - R$15,00')">
-      Pedir no WhatsApp
+    <button onclick="adicionar('Copo Tradicional', 15)">
+      Adicionar
     </button>
   </div>
 
   <div class="produto">
-    <h2>Copo da Felicidade Morango</h2>
-    <p>Morango, leite ninho e chocolate</p>
+    <h2>Morango</h2>
+    <p>Morango + leite ninho</p>
     <span>R$ 18,00</span>
-    <button onclick="pedido('Copo da Felicidade Morango - R$18,00')">
-      Pedir no WhatsApp
+    <button onclick="adicionar('Copo Morango', 18)">
+      Adicionar
     </button>
   </div>
 
   <div class="produto">
-    <h2>Copo da Felicidade Oreo</h2>
-    <p>Oreo, brigadeiro branco e chocolate</p>
+    <h2>Oreo</h2>
+    <p>Oreo + brigadeiro branco</p>
     <span>R$ 20,00</span>
-    <button onclick="pedido('Copo da Felicidade Oreo - R$20,00')">
-      Pedir no WhatsApp
+    <button onclick="adicionar('Copo Oreo', 20)">
+      Adicionar
     </button>
   </div>
 
-</section>
+</main>
 
-<footer>
-  <p>📦 Pedidos somente online</p>
-  <p>💖 Doceria da Aryane</p>
-</footer>
+<!-- CARRINHO -->
+<div id="carrinho" class="carrinho">
+  <div class="carrinho-conteudo">
+    <h2>🛒 Seu pedido</h2>
+    <ul id="lista"></ul>
+    <p class="total">Total: R$ <span id="total">0</span></p>
+
+    <button class="whats" onclick="finalizar()">
+      Finalizar no WhatsApp
+    </button>
+
+    <button class="fechar" onclick="fecharCarrinho()">
+      Fechar
+    </button>
+  </div>
+</div>
 
 <script src="script.js"></script>
 </body>
