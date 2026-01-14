@@ -1,131 +1,69 @@
-* { box-sizing: border-box; }
+let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(180deg, #fff0f7, #eef7ff);
+function salvar() {
+  localStorage.setItem("carrinho", JSON.stringify(carrinho));
+  renderizar();
 }
 
-header {
-  background: linear-gradient(135deg, #ff8fc7, #7cc6ff);
-  color: white;
-  padding: 20px;
-  text-align: center;
-  position: sticky;
-  top: 0;
+function adicionar(botao) {
+  const card = botao.parentElement;
+  const sabor = card.querySelector(".sabor").value;
+  const tamanho = card.querySelector(".tamanho");
+  const preco = Number(tamanho.selectedOptions[0].dataset.preco);
+  const nomeTamanho = tamanho.value;
+  const nutella = card.querySelector(".nutella").checked;
+
+  let total = preco + (nutella ? 5 : 0);
+
+  carrinho.push({
+    nome: "Copo da Felicidade",
+    sabor,
+    tamanho: nomeTamanho,
+    nutella,
+    total
+  });
+
+  salvar();
+  abrirCarrinho();
 }
 
-.btn-carrinho {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: white;
-  color: #ff69b4;
-  border: none;
-  padding: 8px 14px;
-  border-radius: 30px;
+function renderizar() {
+  const lista = document.getElementById("lista");
+  const totalEl = document.getElementById("total");
+
+  lista.innerHTML = "";
+  let soma = 0;
+
+  carrinho.forEach(item => {
+    soma += item.total;
+    lista.innerHTML += `<li>
+      ${item.nome} <br>
+      ${item.sabor} | ${item.tamanho} ${item.nutella ? "+ Nutella" : ""}
+      <br><b>R$ ${item.total}</b>
+    </li>`;
+  });
+
+  totalEl.innerText = "Total: R$ " + soma;
 }
 
-.catalogo {
-  padding: 20px;
+function abrirCarrinho() {
+  document.getElementById("carrinho").classList.add("ativo");
+  document.getElementById("overlay").style.display = "block";
 }
 
-.card {
-  background: white;
-  border-radius: 20px;
-  padding: 20px;
-  box-shadow: 0 8px 20px rgba(0,0,0,.15);
+function fecharCarrinho() {
+  document.getElementById("carrinho").classList.remove("ativo");
+  document.getElementById("overlay").style.display = "none";
 }
 
-.card img {
-  width: 100%;
-  border-radius: 15px;
+function finalizar() {
+  let msg = "Pedido Doceria da Aryane:%0A";
+
+  carrinho.forEach(p => {
+    msg += `- ${p.nome} (${p.sabor} - ${p.tamanho}) ${p.nutella ? "+ Nutella" : ""} R$${p.total}%0A`;
+  });
+
+  window.open("https://wa.me/5512982153106?text=" + msg);
 }
 
-.card h2 {
-  font-family: 'Playfair Display', serif;
-  color: #ff69b4;
-}
-
-label {
-  display: block;
-  margin-top: 10px;
-}
-
-select {
-  width: 100%;
-  padding: 10px;
-  border-radius: 10px;
-}
-
-.check {
-  margin: 10px 0;
-}
-
-.card button {
-  background: linear-gradient(135deg, #ff8fc7, #7cc6ff);
-  color: white;
-  border: none;
-  width: 100%;
-  padding: 12px;
-  border-radius: 15px;
-}
-
-#overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,.5);
-  display: none;
-}
-
-#carrinho {
-  position: fixed;
-  right: -100%;
-  top: 0;
-  width: 85%;
-  max-width: 400px;
-  height: 100%;
-  background: white;
-  transition: .3s;
-  z-index: 10;
-}
-
-#carrinho.ativo {
-  right: 0;
-}
-
-.topo {
-  background: linear-gradient(135deg, #ff8fc7, #7cc6ff);
-  color: white;
-  padding: 15px;
-  display: flex;
-  justify-content: space-between;
-}
-
-#lista {
-  padding: 15px;
-  list-style: none;
-}
-
-.rodape {
-  padding: 15px;
-}
-
-.whats {
-  background: #25d366;
-  color: white;
-  border: none;
-  width: 100%;
-  padding: 14px;
-  border-radius: 15px;
-}
-
-.insta {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  background: linear-gradient(135deg,#f58529,#dd2a7b,#8134af);
-  color: white;
-  padding: 14px;
-  border-radius: 50%;
-    }
+renderizar();
