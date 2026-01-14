@@ -54,7 +54,7 @@ function finalizar() {
   carrinho.forEach(i => msg += `• ${i.nome} - R$ ${i.preco}\n`);
   msg += `\nTotal: R$ ${total}`;
 
-  const numero = "5511999999999"; // SEU WHATS
+  const numero = "5512982153106"; // SEU WHATS
   window.open(`https://wa.me/${numero}?text=${encodeURIComponent(msg)}`, "_blank");
 
   carrinho = [];
