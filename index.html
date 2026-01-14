@@ -24,27 +24,24 @@
 <main class="catalogo">
 
   <div class="card">
-    <h2>Tradicional</h2>
-    <p>Pequeno</p>
-    <span>R$ 10,00</span>
-    <button onclick="adicionar('Copo Tradicional', 15)">Adicionar</button>
-  </div>
-
-  <div class="card">
-    <h2>Morango</h2>
-    <p>Medio</p>
-    <span>R$ 15,00</span>
-    <button onclick="adicionar('Copo Morango', 18)">Adicionar</button>
-  </div>
-
-  <div class="card">
-    <h2>Oreo</h2>
-    <p>Grande</p>
-    <span>R$ 20,00</span>
-    <button onclick="adicionar('Copo Oreo', 20)">Adicionar</button>
+    <h2>Copo da Felicidade</h2>
+    <p>Escolha seu sabor e tamanho</p>
+    <button onclick="abrirOpcoes()">Adicionar</button>
   </div>
 
 </main>
+
+<!-- MODAL OPÇÕES -->
+<div id="modal" class="modal">
+  <div class="modal-box">
+    <h2 id="titulo-etapa">Escolha o sabor</h2>
+
+    <div id="opcoes"></div>
+
+    <button class="confirmar" onclick="confirmarOpcao()">Continuar</button>
+    <button class="cancelar" onclick="fecharModal()">Cancelar</button>
+  </div>
+</div>
 
 <!-- OVERLAY -->
 <div id="overlay" onclick="fecharCarrinho()"></div>
