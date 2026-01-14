@@ -121,7 +121,7 @@ function finalizar() {
   carrinho.forEach(i => msg += `• ${i.nome} - R$ ${i.preco}\n`);
   msg += `\nTotal: R$ ${total}`;
 
-  const numero = "5511999999999";
+  const numero = "5512982153106";
   window.open(`https://wa.me/${numero}?text=${encodeURIComponent(msg)}`);
 
   carrinho = [];
