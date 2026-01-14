@@ -1,30 +1,45 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #ffc0cb, #add8e6);
-  text-align: center;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, #ffd1dc, #cce7ff);
 }
 
 header {
-  background-color: #ff69b4;
+  background: #ff69b4;
   color: white;
-  padding: 20px;
+  padding: 15px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+}
+
+.carrinho-btn {
+  background: white;
+  color: #ff69b4;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 20px;
+  margin-top: 10px;
+  font-weight: bold;
 }
 
 .catalogo {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  padding: 15px;
 }
 
 .produto {
   background: white;
   border-radius: 15px;
-  width: 260px;
-  margin: 15px;
   padding: 15px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 10px rgba(0,0,0,.15);
+  text-align: center;
 }
 
 .produto h2 {
@@ -33,28 +48,73 @@ header {
 
 .produto span {
   display: block;
-  font-weight: bold;
   margin: 10px 0;
+  font-weight: bold;
   color: #1e90ff;
 }
 
-button {
+.produto button {
   background: #1e90ff;
   color: white;
   border: none;
   padding: 10px;
   width: 100%;
   border-radius: 10px;
-  cursor: pointer;
-  font-size: 15px;
+  font-size: 16px;
 }
 
-button:hover {
-  background: #104e8b;
+/* CARRINHO */
+.carrinho {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.6);
 }
 
-footer {
+.carrinho-conteudo {
+  background: white;
+  margin: auto;
+  width: 90%;
+  max-width: 400px;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+}
+
+.carrinho ul {
+  list-style: none;
+  padding: 0;
+}
+
+.total {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.whats {
+  background: #25d366;
+  color: white;
+  border: none;
+  padding: 12px;
+  width: 100%;
+  border-radius: 10px;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.fechar {
   background: #ff69b4;
   color: white;
+  border: none;
   padding: 10px;
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+/* DESKTOP */
+@media (min-width: 700px) {
+  .catalogo {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
