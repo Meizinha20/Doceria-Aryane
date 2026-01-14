@@ -6,84 +6,112 @@ body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
   background: linear-gradient(180deg, #fff0f7, #eef7ff);
-  color: #333;
 }
 
 /* HEADER */
 header {
   background: linear-gradient(135deg, #ff9acb, #8fd3ff);
   color: white;
-  padding: 24px 20px;
+  padding: 24px;
   text-align: center;
   position: sticky;
   top: 0;
-  z-index: 5;
-}
-
-header h1 {
-  font-family: 'Playfair Display', serif;
-  margin: 0;
 }
 
 .btn-carrinho {
   position: absolute;
-  top: 22px;
+  top: 20px;
   right: 20px;
   background: white;
   color: #ff69b4;
   border: none;
   border-radius: 50px;
   padding: 8px 16px;
-  font-weight: 600;
 }
 
 /* CATÁLOGO */
 .catalogo {
   padding: 20px;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
 }
 
 .card {
-  background: linear-gradient(180deg, #ffffff, #fff7fb);
+  background: white;
   border-radius: 20px;
-  padding: 22px;
-  box-shadow: 0 10px 25px rgba(0,0,0,.12);
+  padding: 25px;
+  box-shadow: 0 10px 25px rgba(0,0,0,.15);
   text-align: center;
-}
-
-.card h2 {
-  font-family: 'Playfair Display', serif;
-  color: #ff69b4;
-}
-
-.card span {
-  display: block;
-  margin: 12px 0;
-  font-weight: 600;
-  color: #1e90ff;
 }
 
 .card button {
   background: linear-gradient(135deg, #7cc6ff, #ff8fc7);
   color: white;
   border: none;
-  padding: 13px;
+  padding: 14px;
   width: 100%;
   border-radius: 14px;
+  font-size: 16px;
 }
 
-/* OVERLAY */
-#overlay {
+/* MODAL */
+.modal {
+  display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,.55);
-  display: none;
-  z-index: 9;
+  background: rgba(0,0,0,.6);
+  z-index: 20;
+}
+
+.modal-box {
+  background: white;
+  margin: auto;
+  padding: 25px;
+  width: 90%;
+  max-width: 350px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+#opcoes button {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 12px;
+  border: 2px solid #ff8fc7;
+  background: white;
+  color: #ff69b4;
+  font-weight: 600;
+}
+
+#opcoes button.ativo {
+  background: #ff8fc7;
+  color: white;
+}
+
+.confirmar {
+  background: #1e90ff;
+  color: white;
+  border: none;
+  padding: 12px;
+  width: 100%;
+  border-radius: 12px;
+  margin-top: 10px;
+}
+
+.cancelar {
+  background: none;
+  border: none;
+  margin-top: 10px;
 }
 
 /* CARRINHO */
+#overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.5);
+  display: none;
+}
+
 #carrinho {
   position: fixed;
   top: 0;
@@ -91,11 +119,8 @@ header h1 {
   width: 85%;
   max-width: 400px;
   height: 100%;
-  background: linear-gradient(180deg, #ffffff, #fff5fa);
-  z-index: 10;
-  display: flex;
-  flex-direction: column;
-  transition: right 0.35s ease;
+  background: white;
+  transition: .3s;
 }
 
 #carrinho.ativo {
@@ -103,17 +128,15 @@ header h1 {
 }
 
 .topo {
-  background: linear-gradient(135deg, #ff8fc7, #7cc6ff);
+  background: #ff8fc7;
   color: white;
-  padding: 18px;
+  padding: 15px;
   display: flex;
   justify-content: space-between;
 }
 
 #lista {
-  flex: 1;
   padding: 15px;
-  list-style: none;
 }
 
 .rodape {
@@ -121,12 +144,12 @@ header h1 {
 }
 
 .whats {
-  background: linear-gradient(135deg, #25d366, #1ebc5a);
+  background: #25d366;
   color: white;
   border: none;
   padding: 14px;
   width: 100%;
-  border-radius: 14px;
+  border-radius: 12px;
 }
 
 /* INSTAGRAM */
@@ -134,16 +157,9 @@ header h1 {
   position: fixed;
   bottom: 20px;
   left: 20px;
-  background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af);
+  background: linear-gradient(135deg,#f58529,#dd2a7b,#8134af);
   color: white;
   padding: 14px;
   border-radius: 50%;
   text-decoration: none;
-}
-
-/* DESKTOP */
-@media (min-width: 700px) {
-  .catalogo {
-    grid-template-columns: repeat(3, 1fr);
-  }
 }
