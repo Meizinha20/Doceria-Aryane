@@ -1,6 +1,4 @@
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
@@ -10,12 +8,16 @@ body {
 
 /* HEADER */
 header {
-  background: linear-gradient(135deg, #ff9acb, #8fd3ff);
+  background: linear-gradient(135deg, #ff8fc7, #7cc6ff);
   color: white;
-  padding: 24px;
+  padding: 20px;
   text-align: center;
   position: sticky;
   top: 0;
+}
+
+header h1 {
+  font-family: 'Playfair Display', serif;
 }
 
 .btn-carrinho {
@@ -25,8 +27,9 @@ header {
   background: white;
   color: #ff69b4;
   border: none;
-  border-radius: 50px;
-  padding: 8px 16px;
+  padding: 8px 14px;
+  border-radius: 30px;
+  font-weight: 600;
 }
 
 /* CATÁLOGO */
@@ -36,72 +39,87 @@ header {
 
 .card {
   background: white;
-  border-radius: 20px;
-  padding: 25px;
+  border-radius: 22px;
+  padding: 20px;
   box-shadow: 0 10px 25px rgba(0,0,0,.15);
-  text-align: center;
 }
 
-.card button {
-  background: linear-gradient(135deg, #7cc6ff, #ff8fc7);
-  color: white;
-  border: none;
-  padding: 14px;
+.card img {
   width: 100%;
-  border-radius: 14px;
-  font-size: 16px;
+  border-radius: 16px;
+  margin-bottom: 10px;
 }
 
-/* MODAL */
-.modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,.6);
-  z-index: 20;
+.card h2 {
+  font-family: 'Playfair Display', serif;
+  color: #ff69b4;
 }
 
-.modal-box {
-  background: white;
-  margin: auto;
-  padding: 25px;
-  width: 90%;
-  max-width: 350px;
-  border-radius: 20px;
-  text-align: center;
+/* CAMPOS */
+.campo {
+  margin-top: 14px;
 }
 
-#opcoes button {
+.campo label {
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 6px;
   display: block;
+  color: #555;
+}
+
+.campo select {
   width: 100%;
-  margin: 10px 0;
-  padding: 12px;
-  border-radius: 12px;
-  border: 2px solid #ff8fc7;
-  background: white;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: none;
+  background: linear-gradient(180deg, #fff, #fff5fa);
+  font-size: 14px;
+  box-shadow: 0 6px 15px rgba(0,0,0,.08);
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ff69b4'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 18px;
+}
+
+/* NUTELLA */
+.extra {
+  margin-top: 16px;
+}
+
+.nutella-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #fff0f7, #eef7ff);
+  padding: 14px;
+  border-radius: 16px;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(0,0,0,.1);
+}
+
+.nutella-box input {
+  width: 18px;
+  height: 18px;
+}
+
+.nutella-box small {
   color: #ff69b4;
   font-weight: 600;
 }
 
-#opcoes button.ativo {
-  background: #ff8fc7;
-  color: white;
-}
-
-.confirmar {
-  background: #1e90ff;
-  color: white;
-  border: none;
-  padding: 12px;
+/* BOTÃO */
+.card button {
+  margin-top: 16px;
   width: 100%;
-  border-radius: 12px;
-  margin-top: 10px;
-}
-
-.cancelar {
-  background: none;
+  padding: 14px;
+  border-radius: 16px;
   border: none;
-  margin-top: 10px;
+  background: linear-gradient(135deg, #ff8fc7, #7cc6ff);
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
 }
 
 /* CARRINHO */
@@ -114,13 +132,14 @@ header {
 
 #carrinho {
   position: fixed;
-  top: 0;
   right: -100%;
+  top: 0;
   width: 85%;
   max-width: 400px;
   height: 100%;
   background: white;
   transition: .3s;
+  z-index: 10;
 }
 
 #carrinho.ativo {
@@ -128,7 +147,7 @@ header {
 }
 
 .topo {
-  background: #ff8fc7;
+  background: linear-gradient(135deg, #ff8fc7, #7cc6ff);
   color: white;
   padding: 15px;
   display: flex;
@@ -137,6 +156,7 @@ header {
 
 #lista {
   padding: 15px;
+  list-style: none;
 }
 
 .rodape {
@@ -147,9 +167,10 @@ header {
   background: #25d366;
   color: white;
   border: none;
-  padding: 14px;
   width: 100%;
-  border-radius: 12px;
+  padding: 14px;
+  border-radius: 15px;
+  font-weight: 600;
 }
 
 /* INSTAGRAM */
@@ -161,5 +182,4 @@ header {
   color: white;
   padding: 14px;
   border-radius: 50%;
-  text-decoration: none;
 }
