@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
+  <title>Doceria da Aryane</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Doceria da Aryane 🍰</title>
 
-  <!-- FONTES -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+  <!-- Fonte -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
 </head>
@@ -14,55 +14,55 @@
 
 <header>
   <h1>Doceria da Aryane</h1>
-  <p>Copo da Felicidade • Pedidos online</p>
-
-  <button class="btn-carrinho" onclick="abrirCarrinho()">
-    🛒 <span id="contador">0</span>
-  </button>
+  <p>Copo da Felicidade 🍰</p>
+  <button class="btn-carrinho" onclick="abrirCarrinho()">🛒 Carrinho</button>
 </header>
 
-<main class="catalogo">
+<section class="catalogo">
 
   <div class="card">
+    <img src="imagens/copo1.jpg">
     <h2>Copo da Felicidade</h2>
-    <p>Escolha seu sabor e tamanho</p>
-    <button onclick="abrirOpcoes()">Adicionar</button>
+
+    <label>Sabor</label>
+    <select class="sabor">
+      <option value="Morango">Morango</option>
+      <option value="Chocolate">Chocolate</option>
+      <option value="Ninho">Ninho</option>
+    </select>
+
+    <label>Tamanho</label>
+    <select class="tamanho">
+      <option value="300ml" data-preco="15">300ml – R$15</option>
+      <option value="500ml" data-preco="20">500ml – R$20</option>
+    </select>
+
+    <label class="check">
+      <input type="checkbox" class="nutella"> Nutella (+R$5)
+    </label>
+
+    <button onclick="adicionar(this)">Adicionar</button>
   </div>
 
-</main>
+</section>
 
-<!-- MODAL OPÇÕES -->
-<div id="modal" class="modal">
-  <div class="modal-box">
-    <h2 id="titulo-etapa">Escolha o sabor</h2>
-
-    <div id="opcoes"></div>
-
-    <button class="confirmar" onclick="confirmarOpcao()">Continuar</button>
-    <button class="cancelar" onclick="fecharModal()">Cancelar</button>
-  </div>
-</div>
-
-<!-- OVERLAY -->
 <div id="overlay" onclick="fecharCarrinho()"></div>
 
-<!-- CARRINHO -->
-<aside id="carrinho">
+<div id="carrinho">
   <div class="topo">
-    <h2>Seu pedido</h2>
+    <h2>Seu Carrinho</h2>
     <button onclick="fecharCarrinho()">✖</button>
   </div>
 
   <ul id="lista"></ul>
 
   <div class="rodape">
-    <p>Total: R$ <span id="total">0</span></p>
+    <p id="total"></p>
     <button class="whats" onclick="finalizar()">Finalizar no WhatsApp</button>
   </div>
-</aside>
+</div>
 
-<!-- INSTAGRAM -->
-<a href="https://instagram.com/SEUINSTAGRAM" target="_blank" class="insta">📸</a>
+<a class="insta" href="https://instagram.com/SEUINSTAGRAM" target="_blank">📸</a>
 
 <script src="script.js"></script>
 </body>
