@@ -1,7 +1,9 @@
 let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 let total = carrinho.reduce((s, i) => s + i.preco, 0);
 
-atualizarContador();
+document.addEventListener("DOMContentLoaded", () => {
+  atualizarContador();
+});
 
 function adicionar(nome, preco) {
   carrinho.push({ nome, preco });
@@ -11,11 +13,13 @@ function adicionar(nome, preco) {
 
 function abrirCarrinho() {
   document.getElementById("carrinho").classList.add("ativo");
+  document.getElementById("overlay").style.display = "block";
   atualizar();
 }
 
 function fecharCarrinho() {
   document.getElementById("carrinho").classList.remove("ativo");
+  document.getElementById("overlay").style.display = "none";
 }
 
 function atualizar() {
@@ -24,7 +28,7 @@ function atualizar() {
 
   carrinho.forEach(item => {
     const li = document.createElement("li");
-    li.innerText = `${item.nome} - R$ ${item.preco}`;
+    li.textContent = `${item.nome} - R$ ${item.preco}`;
     lista.appendChild(li);
   });
 
@@ -41,14 +45,17 @@ function salvar() {
 }
 
 function finalizar() {
-  if (carrinho.length === 0) return alert("Carrinho vazio!");
+  if (carrinho.length === 0) {
+    alert("Carrinho vazio!");
+    return;
+  }
 
   let msg = "Olá! Quero fazer um pedido 🍰\n\n";
   carrinho.forEach(i => msg += `• ${i.nome} - R$ ${i.preco}\n`);
   msg += `\nTotal: R$ ${total}`;
 
-  const numero = "5512982153106"; // SEU WHATS
-  window.open(`https://wa.me/${numero}?text=${encodeURIComponent(msg)}`);
+  const numero = "5511999999999"; // SEU WHATS
+  window.open(`https://wa.me/${numero}?text=${encodeURIComponent(msg)}`, "_blank");
 
   carrinho = [];
   total = 0;
