@@ -9,60 +9,58 @@
 <body>
 
 <header>
-  <h1>🍬 Doceria da Aryane</h1>
+  <h1>Doceria da Aryane</h1>
   <p>Copo da Felicidade • Pedidos online</p>
-  <button class="carrinho-btn" onclick="abrirCarrinho()">
-    🛒 Carrinho (<span id="contador">0</span>)
+
+  <button class="btn-carrinho" onclick="abrirCarrinho()">
+    🛒 <span id="contador">0</span>
   </button>
 </header>
 
 <main class="catalogo">
 
-  <div class="produto">
+  <div class="card">
     <h2>Tradicional</h2>
-    <p>Chocolate + brigadeiro + creme</p>
+    <p>Chocolate, brigadeiro e creme</p>
     <span>R$ 15,00</span>
-    <button onclick="adicionar('Copo Tradicional', 15)">
-      Adicionar
-    </button>
+    <button onclick="adicionar('Copo Tradicional', 15)">Adicionar</button>
   </div>
 
-  <div class="produto">
+  <div class="card">
     <h2>Morango</h2>
     <p>Morango + leite ninho</p>
     <span>R$ 18,00</span>
-    <button onclick="adicionar('Copo Morango', 18)">
-      Adicionar
-    </button>
+    <button onclick="adicionar('Copo Morango', 18)">Adicionar</button>
   </div>
 
-  <div class="produto">
+  <div class="card">
     <h2>Oreo</h2>
     <p>Oreo + brigadeiro branco</p>
     <span>R$ 20,00</span>
-    <button onclick="adicionar('Copo Oreo', 20)">
-      Adicionar
-    </button>
+    <button onclick="adicionar('Copo Oreo', 20)">Adicionar</button>
   </div>
 
 </main>
 
 <!-- CARRINHO -->
-<div id="carrinho" class="carrinho">
-  <div class="carrinho-conteudo">
-    <h2>🛒 Seu pedido</h2>
-    <ul id="lista"></ul>
-    <p class="total">Total: R$ <span id="total">0</span></p>
-
-    <button class="whats" onclick="finalizar()">
-      Finalizar no WhatsApp
-    </button>
-
-    <button class="fechar" onclick="fecharCarrinho()">
-      Fechar
-    </button>
+<aside id="carrinho" class="carrinho">
+  <div class="topo">
+    <h2>Seu pedido</h2>
+    <button onclick="fecharCarrinho()">✖</button>
   </div>
-</div>
+
+  <ul id="lista"></ul>
+
+  <div class="rodape">
+    <p>Total: R$ <span id="total">0</span></p>
+    <button class="whats" onclick="finalizar()">Finalizar no WhatsApp</button>
+  </div>
+</aside>
+
+<!-- BOTÃO INSTAGRAM -->
+<a href="https://instagram.com/SEUINSTAGRAM" target="_blank" class="insta">
+  📸
+</a>
 
 <script src="script.js"></script>
 </body>
