@@ -2,14 +2,13 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Marine Doces Gourmet</title>
+  <title>Doceria da Aryane</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Fonte -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <header>
@@ -21,32 +20,41 @@
 <section class="catalogo">
 
   <div class="card">
-    <img src="imagens/copo1.jpg">
+    <img src="imagens/copo1.jpg" alt="Copo da Felicidade">
+
     <h2>Copo da Felicidade</h2>
 
-    <label>Sabor</label>
-    <select class="sabor">
-      <option value="Morango">Morango</option>
-      <option value="Uva">Chocolate</option>
-      <option value="Kit-Kat">Ninho</option>
-      <option value="Kit-Kat">Sonho de valsa</option>
-      <option value="Kit-Kat">Ouro branco</option>
-      <option value="Kit-Kat">Oreo</option>
-      <option value="Kit-Kat">brownie</option>
-    </select>
+    <div class="campo">
+      <label>Sabor</label>
+      <select class="sabor">
+        <option>Morango</option>
+        <option>Chocolate</option>
+        <option>Ninho</option>
+        <option>Oreo</option>
+        <option>Kit Kat</option>
+        <option>Sonho de Valsa</option>
+        <option>Ouro Branco</option>
+        <option>Brownie</option>
+      </select>
+    </div>
 
-    <label>Tamanho</label>
-    <select class="tamanho">
-      <option value="150ml" data-preco="12">150ml – R$12</option>
-      <option value="250ml" data-preco="18">250ml – R$18</option>
-      <option value="300ml" data-preco="23">300ml – R$23</option>
-    </select>
+    <div class="campo">
+      <label>Tamanho</label>
+      <select class="tamanho">
+        <option value="150ml" data-preco="12">150ml — R$12</option>
+        <option value="250ml" data-preco="18">250ml — R$18</option>
+        <option value="300ml" data-preco="23">300ml — R$23</option>
+      </select>
+    </div>
 
-    <label class="check">
-      <input type="checkbox" class="nutella"> Nutella (+R$5)
-    </label>
+    <div class="campo extra">
+      <label class="nutella-box">
+        <input type="checkbox" class="nutella">
+        <span>Adicionar Nutella <small>+ R$5</small></span>
+      </label>
+    </div>
 
-    <button onclick="adicionar(this)">Adicionar</button>
+    <button onclick="adicionar(this)">Adicionar ao carrinho</button>
   </div>
 
 </section>
