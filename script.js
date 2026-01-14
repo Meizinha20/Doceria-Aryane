@@ -1,131 +1,131 @@
-let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
-let total = carrinho.reduce((s, i) => s + i.preco, 0);
+* { box-sizing: border-box; }
 
-let etapa = 1;
-let saborSelecionado = "";
-let tamanhoSelecionado = "";
-let precoSelecionado = 0;
-
-const sabores = ["Chocolate", "Morango", "Oreo"];
-const tamanhos = [
-  { nome: "Pequeno", preco: 12 },
-  { nome: "Médio", preco: 15 },
-  { nome: "Grande", preco: 20 }
-];
-
-document.addEventListener("DOMContentLoaded", () => {
-  atualizarContador();
-});
-
-function abrirOpcoes() {
-  etapa = 1;
-  saborSelecionado = "";
-  tamanhoSelecionado = "";
-  document.getElementById("modal").style.display = "flex";
-  renderizarSabores();
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(180deg, #fff0f7, #eef7ff);
 }
 
-function renderizarSabores() {
-  document.getElementById("titulo-etapa").innerText = "Escolha o sabor";
-  const div = document.getElementById("opcoes");
-  div.innerHTML = "";
-
-  sabores.forEach(sabor => {
-    const btn = document.createElement("button");
-    btn.innerText = sabor;
-    btn.onclick = () => selecionar(btn, sabor);
-    div.appendChild(btn);
-  });
+header {
+  background: linear-gradient(135deg, #ff8fc7, #7cc6ff);
+  color: white;
+  padding: 20px;
+  text-align: center;
+  position: sticky;
+  top: 0;
 }
 
-function renderizarTamanhos() {
-  document.getElementById("titulo-etapa").innerText = "Escolha o tamanho";
-  const div = document.getElementById("opcoes");
-  div.innerHTML = "";
-
-  tamanhos.forEach(t => {
-    const btn = document.createElement("button");
-    btn.innerText = `${t.nome} - R$ ${t.preco}`;
-    btn.onclick = () => selecionar(btn, t.nome, t.preco);
-    div.appendChild(btn);
-  });
+.btn-carrinho {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: white;
+  color: #ff69b4;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 30px;
 }
 
-function selecionar(botao, valor, preco = 0) {
-  [...document.querySelectorAll("#opcoes button")].forEach(b => b.classList.remove("ativo"));
-  botao.classList.add("ativo");
-
-  if (etapa === 1) saborSelecionado = valor;
-  if (etapa === 2) {
-    tamanhoSelecionado = valor;
-    precoSelecionado = preco;
-  }
+.catalogo {
+  padding: 20px;
 }
 
-function confirmarOpcao() {
-  if (etapa === 1 && saborSelecionado) {
-    etapa = 2;
-    renderizarTamanhos();
-  } else if (etapa === 2 && tamanhoSelecionado) {
-    carrinho.push({
-      nome: `Copo ${saborSelecionado} (${tamanhoSelecionado})`,
-      preco: precoSelecionado
-    });
-    total += precoSelecionado;
-    salvar();
-    fecharModal();
-  } else {
-    alert("Escolha uma opção!");
-  }
+.card {
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,.15);
 }
 
-function fecharModal() {
-  document.getElementById("modal").style.display = "none";
+.card img {
+  width: 100%;
+  border-radius: 15px;
 }
 
-function abrirCarrinho() {
-  document.getElementById("carrinho").classList.add("ativo");
-  document.getElementById("overlay").style.display = "block";
-  atualizar();
+.card h2 {
+  font-family: 'Playfair Display', serif;
+  color: #ff69b4;
 }
 
-function fecharCarrinho() {
-  document.getElementById("carrinho").classList.remove("ativo");
-  document.getElementById("overlay").style.display = "none";
+label {
+  display: block;
+  margin-top: 10px;
 }
 
-function atualizar() {
-  const lista = document.getElementById("lista");
-  lista.innerHTML = "";
-  carrinho.forEach(i => {
-    const li = document.createElement("li");
-    li.textContent = `${i.nome} - R$ ${i.preco}`;
-    lista.appendChild(li);
-  });
-  document.getElementById("total").innerText = total;
+select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
 }
 
-function atualizarContador() {
-  document.getElementById("contador").innerText = carrinho.length;
+.check {
+  margin: 10px 0;
 }
 
-function salvar() {
-  localStorage.setItem("carrinho", JSON.stringify(carrinho));
-  atualizarContador();
+.card button {
+  background: linear-gradient(135deg, #ff8fc7, #7cc6ff);
+  color: white;
+  border: none;
+  width: 100%;
+  padding: 12px;
+  border-radius: 15px;
 }
 
-function finalizar() {
-  if (carrinho.length === 0) return alert("Carrinho vazio!");
-
-  let msg = "Olá! Quero fazer um pedido 🍰\n\n";
-  carrinho.forEach(i => msg += `• ${i.nome} - R$ ${i.preco}\n`);
-  msg += `\nTotal: R$ ${total}`;
-
-  const numero = "5512982153106";
-  window.open(`https://wa.me/${numero}?text=${encodeURIComponent(msg)}`);
-
-  carrinho = [];
-  total = 0;
-  salvar();
-  fecharCarrinho();
+#overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.5);
+  display: none;
 }
+
+#carrinho {
+  position: fixed;
+  right: -100%;
+  top: 0;
+  width: 85%;
+  max-width: 400px;
+  height: 100%;
+  background: white;
+  transition: .3s;
+  z-index: 10;
+}
+
+#carrinho.ativo {
+  right: 0;
+}
+
+.topo {
+  background: linear-gradient(135deg, #ff8fc7, #7cc6ff);
+  color: white;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#lista {
+  padding: 15px;
+  list-style: none;
+}
+
+.rodape {
+  padding: 15px;
+}
+
+.whats {
+  background: #25d366;
+  color: white;
+  border: none;
+  width: 100%;
+  padding: 14px;
+  border-radius: 15px;
+}
+
+.insta {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: linear-gradient(135deg,#f58529,#dd2a7b,#8134af);
+  color: white;
+  padding: 14px;
+  border-radius: 50%;
+    }
