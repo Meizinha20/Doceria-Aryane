@@ -1,7 +1,0 @@
-function pedido(produto) {
-  const numero = "551298215-3106"; // ← COLOQUE SEU WHATS AQUI
-  const mensagem = `Olá! Quero fazer um pedido 😊\n\nProduto: ${produto}`;
-  
-  const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
-  window.open(url, "_blank");
-}
